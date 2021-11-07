@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    {% for el in tasks %}
+        {% if el.is_actual %}
+            <div class="alert alert-light">
+                <h5>{{ el.task_title }}</h5>
+                <p>{{ el.task_text }}</p>
+                <p>{{ el.task_date }} {{el.start_time}} - {{ el.end_time }}</p>
+            </div>
+        {% else %}
+            <div class="alert alert-warning">
+                <h5>{{ el.task_title }}</h5>
+                <p>{{ el.task_text }}</p>
+                <p>{{ el.task_date }} {{el.start_time}} - {{ el.end_time }}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

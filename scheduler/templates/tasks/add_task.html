@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Добавить задачу {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <h4>Создание задачи</h4>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.task_title }}
+            <br>
+            {{ form.task_text }}
+            <label for="task_date">Дата задачи: </label>
+            {{ form.task_date }}
+            <label for="start_time">Начало: </label>
+            {{ form.start_time }}
+            <label for="end_time">Окончание: </label>
+            {{ form.end_time }}
+            <br>
+            <button type="submit" class="btn btn-success">Создать</button>
+            <button type="reset" class="btn btn-danger">Очистить</button>
+            <span>{{ error }}</span>
+        </form>
+    </div>
+
+{% endblock %}

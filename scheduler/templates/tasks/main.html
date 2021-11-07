@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Главная страница {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                    {% for el in tasks %}
+                        {% if el.is_actual %}
+                            <span class="badge rounded-pill bg-success">
+                                <p>{{ el.task_title }}</p>
+                                <p>{{ el.task_text }}</p>
+                                <p>{{ el.task_date }} {{el.start_time}} - {{ el.end_time }}</p>
+                            </span>
+                            <br>
+                        {% else %}
+                            <span class="badge rounded-pill bg-light text-dark">
+                                <p>{{ el.task_title }}</p>
+                                <p>{{ el.task_text }}</p>
+                                <p>{{ el.task_date }} {{el.start_time}} - {{ el.end_time }}</p>
+                            </span>
+                            <br>
+                        {% endif %}
+                    {% endfor %}
+            </div>
+            <div class="col-md-2">
+                <a href="{% url 'add_task' %}">
+                    <img
+                        src="{% static 'img/add_task.png' %}"
+                        height="50"
+                      />
+                </a>
+                <p>Новая задача</p>
+            </div>
+            <div class="col-md-6">
+                Here will be calender!
+            </div>
+        </div>
+    </div>
+{% endblock %}

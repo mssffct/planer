@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %} Главная страница {% endblock %}
+
+{% block content %}
+    <h4>Создать еще одну задачу?</h4>
+    <br>
+    <a class="btn btn-success" href="{% url 'add_task' %}">Подтвердить</a>
+    <a class="btn btn-danger" href="{% url 'main' %}">Отмена</a>
+{% endblock %}
